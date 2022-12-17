@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- 
+        1. Luôn dùng React.createElement() ?  Vấn đề ?
+        2. JSX ? Live demo
+        3. JSX không phải là HTML
+            Cần có Javascript, Balel để dùng JSX
+        4. JSX và React-DOM?
+
+        <ul>
+            <li>Javascript</li>
+            <li>ReactJS</li>
+        </ul
+    -->
+
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const reactCouse = 'ReactJS';
+        const ul = <ul>
+            <li>Javascript</li>
+            <li>ReactJS</li>
+        </ul>
+       
+       ReactDOM.render(ul, document.getElementById('root'))
+    </script>
+</body>
+
+</html>

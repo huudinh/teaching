@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- 
+        - React elements
+            - Sử dụng props giống như với attribute của thẻ HTML
+            - 2 props class, for => className, htmlFor
+            - Phải tuân thủ theo quy ước có sẵn
+        - React components
+            - Sử dụng props giống như đối số cho Component
+            - Tự do đặt tên props
+                - Đặt theo camelCase
+                - *Có thể bao gồm dấu gạch ngang
+        - Chú ý
+            - Prop "key" là props đặc biệt
+            - Props cơ bản là đối số của Component
+                => Props có thế là bất cứ kiểu dữ liệu gì
+            - Sử dụng destructuring
+    -->
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        // PostItem.js
+        function PostItem(props) {
+            return (
+                <div class="media">
+                    <div class="cate_1_0_0__contentPic">
+                        <a href={props.link}>
+                            <img width="250" height="250" src={props.image} alt={props.title}/>
+                        </a>
+                    </div>
+                    <div class="cate_1_0_0__contentBody">
+                        <h2 class="cate_1_0_0__contentTitle">
+                            <a href={props.link}>{props.title}</a>
+                        </h2>
+                        <div class="cate_1_0_0__contentDesc">{props.title}</div>
+                        <div class="cate_1_0_0__contentMore">
+                            <p>{props.description}</p>
+                            <a href={props.link}>Xem tiếp</a>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+
+        // App.js
+        function App() {
+            return (
+                <div id="wrapper">
+                    <PostItem 
+                        title = '1 Tiêm hạ gò má có ảnh hưởng gì không? Kangnam giải đáp'
+                        description = '1 Tiêm hạ gò má không gây ảnh hưởng đến sức khỏe nếu bạn sử dụng loại botox/filler chất lượng, thực hiện với quy trình an toàn. Tuy nhiên không giống…'
+                        image = 'https://benhvienthammykangnam.vn/wp-content/uploads/2022/11/tiem-ha-go-ma-co-nugy-hiem-jpgng-1-300x300.jpg'
+                        link = 'https://benhvienthammykangnam.vn/tham-my-ham-mat/tiem-ha-go-ma-co-anh-huong-den-suc-khoe/'
+                    />
+                    <PostItem 
+                        title = '2 Tiêm hạ gò má có ảnh hưởng gì không? Kangnam giải đáp'
+                        description = '2 Tiêm hạ gò má không gây ảnh hưởng đến sức khỏe nếu bạn sử dụng loại botox/filler chất lượng, thực hiện với quy trình an toàn. Tuy nhiên không giống…'
+                        image = 'https://benhvienthammykangnam.vn/wp-content/uploads/2022/11/tiem-ha-go-ma-co-nugy-hiem-jpgng-1-300x300.jpg'
+                        link = 'https://benhvienthammykangnam.vn/tham-my-ham-mat/tiem-ha-go-ma-co-anh-huong-den-suc-khoe/'
+                    />
+                    <PostItem 
+                        title = '3 Tiêm hạ gò má có ảnh hưởng gì không? Kangnam giải đáp'
+                        description = '3 Tiêm hạ gò má không gây ảnh hưởng đến sức khỏe nếu bạn sử dụng loại botox/filler chất lượng, thực hiện với quy trình an toàn. Tuy nhiên không giống…'
+                        image = 'https://benhvienthammykangnam.vn/wp-content/uploads/2022/11/tiem-ha-go-ma-co-nugy-hiem-jpgng-1-300x300.jpg'
+                        link = 'https://benhvienthammykangnam.vn/tham-my-ham-mat/tiem-ha-go-ma-co-anh-huong-den-suc-khoe/'
+                    />
+               
+                    
+                </div>
+            )
+        }
+
+        // index.js
+        ReactDOM.render(<App/>, document.getElementById('root'));
+    </script>
+</body>
+
+</html>
