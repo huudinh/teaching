@@ -1,4 +1,9 @@
 import { useState, useEffect, useLayoutEffect } from 'react';
+import UseRefHook from './components/UseRefHook';
+import MemoHoc from './components/MemoHoc';
+import CallbackHook from './components/CallbackHook';
+import UseMemoHook from './components/UseMemoHook';
+import UseReducerHook from './components/UseReducerHook';
 
 // 1. Random Gift
 const gifts = [
@@ -205,7 +210,8 @@ function ShowHide() {
       {/* {show && <Resize />} */}
       {/* {show && <Counter />} */}
       {/* {show && <Avatar />} */}
-      {show && <Chat />}
+      {/* {show && <Chat />} */}
+      {show && <CountNumber />}
     </>
   )
 }
@@ -469,11 +475,36 @@ function Chat() {
 // 4. Gọi useLayoutEffect callback (sync)
 // 5. Render lại UI
 
+function CountNumber() {
+  const [count, setCount] = useState(0);
+
+  useLayoutEffect(() => {
+    if (count > 3)
+      setCount(0);
+  }, [count])
+
+  const handleRun = () => {
+    setCount(count + 1);
+  }
+
+  return (
+    <>
+      <h1>{count}</h1>
+      <button onClick={handleRun}>Run</button>
+    </>
+  )
+}
+
 function App() {
 
   return (
     <div style={{ padding: 32 }}>
-        <ShowHide />
+        {/* <ShowHide /> */}
+        {/* <UseRefHook /> */}
+        {/* <MemoHoc /> */}
+        {/* <CallbackHook /> */}
+        {/* <UseMemoHook /> */}
+        <UseReducerHook />
     </div>
   )
 }
