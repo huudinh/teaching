@@ -160,8 +160,9 @@ function TodoList() {
   
   const [job, setJob] = useState('');
   const [jobs, setJobs] = useState(() => {
-    const storageJobs = JSON.parse(localStorage.getItem('jobs'));
+    const storageJobs = JSON.parse(localStorage.getItem('jobs')) ?? [];
     console.log(storageJobs);
+
     return storageJobs;
   });
 
@@ -206,12 +207,12 @@ function ShowHide() {
     <>
       <button onClick={() => setShow(!show)}>Toggle</button>
       {/* {show && <Content />} */}
-      {/* {show && <Title />} */}
+      {show && <Title />}
       {/* {show && <Resize />} */}
       {/* {show && <Counter />} */}
       {/* {show && <Avatar />} */}
       {/* {show && <Chat />} */}
-      {show && <CountNumber />}
+      {/* {show && <CountNumber />} */}
     </>
   )
 }
@@ -258,24 +259,24 @@ function Title() {
       })
   }, [type]);
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    const handleScroll = () => {
-      if(window.scrollY >= 200) {
-        setShowGoToTop(true);
-      } else {
-        setShowGoToTop(false);
-      }
-    }
+  //   const handleScroll = () => {
+  //     if(window.scrollY >= 200) {
+  //       setShowGoToTop(true);
+  //     } else {
+  //       setShowGoToTop(false);
+  //     }
+  //   }
 
-    window.addEventListener('scroll', handleScroll);
+  //   window.addEventListener('scroll', handleScroll);
 
-    // Cleanup function
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    }
+  //   // Cleanup function
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   }
 
-  }, [])
+  // }, [])
 
   return (
     <>
@@ -499,15 +500,20 @@ function App() {
 
   return (
     <div style={{ padding: 32 }}>
-        {/* <ShowHide /> */}
+        {/* <Gift /> */}
+        {/* <InputChange /> */}
+        {/* <Register /> */}
+        {/* <Radio /> */}
+        {/* <Checkbox /> */}
+        {/* <TodoList /> */}
+        <ShowHide />
         {/* <UseRefHook /> */}
         {/* <MemoHoc /> */}
         {/* <CallbackHook /> */}
         {/* <UseMemoHook /> */}
-        <UseReducerHook />
+        {/* <UseReducerHook /> */}
     </div>
   )
 }
 
 export default App;
-
