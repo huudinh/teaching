@@ -923,34 +923,67 @@
 // -----------------------------------------------------------------------------
 // Context (context advance)
 
-import { ThemeContext } from './ThemeProvider';
-import { useContext } from 'react';
-import './App.css';
+// import { ThemeContext } from './ThemeProvider';
+// import { useContext } from 'react';
+// import './App.css';
+
+// function App() {
+//   const context = useContext(ThemeContext);
+//   return (
+//       <div style={{ padding: 20 }}>
+//         <button onClick={context.toggleTheme}>Toggle theme</button>
+//         <Content />
+//       </div>
+//   )
+// }
+
+// function Content() {
+//   return (
+//     <div>
+//         <Paragraph />
+//     </div>
+//   )
+// }
+
+// function Paragraph() {
+//   const context = useContext(ThemeContext);
+//   return (
+//     <p className={context.theme}>
+//         Context provides a way to pass data through the component tree without having to pass props down manually at every level
+//     </p>
+//   )
+// }
+
+// export default App;
+
+
+// -----------------------------------------------------------------------------
+// useImperativeHandle 
+
+import { useEffect, useRef } from 'react';
+import Video from './Video';
 
 function App() {
-  const context = useContext(ThemeContext);
-  return (
-      <div style={{ padding: 20 }}>
-        <button onClick={context.toggleTheme}>Toggle theme</button>
-        <Content />
-      </div>
-  )
-}
+  const  videoRef = useRef();
 
-function Content() {
+  useEffect(() => {
+    console.log(videoRef.current)
+  })
+
+  const handlePlay = () => {
+    videoRef.current.play();
+  }
+
+  const handlePause = () => {
+    videoRef.current.pause();
+  }
+
   return (
     <div>
-        <Paragraph />
+        <Video ref={videoRef} />
+        <button onClick={handlePlay}>Play</button>
+        <button onClick={handlePause}>Pause</button>
     </div>
-  )
-}
-
-function Paragraph() {
-  const context = useContext(ThemeContext);
-  return (
-    <p className={context.theme}>
-        Context provides a way to pass data through the component tree without having to pass props down manually at every level
-    </p>
   )
 }
 
