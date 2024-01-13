@@ -1,0 +1,26 @@
+.chart_container {
+    display: flex;
+    justify-content: space-around;
+}
+.chart_bar_item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.bar_container{
+    height: 200px;
+    width: 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.bar_fill {
+    width:20px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.month_name {
+    color:#fff;
+}
